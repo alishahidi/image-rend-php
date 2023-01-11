@@ -1,0 +1,21 @@
+{
+    "name": "alishahidi/image-rend-php",
+    "description": "Image library php",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Alishahidi\\ImageRendPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ali Shahidi",
+            "email": "alishahidi1376@gmail.com"
+        }
+    ],
+    "require": {
+        "intervention/image": "^2.7",
+        "symfony/filesystem": "^6.2",
+        "ramsey/uuid": "^4.7"
+    }
+}
