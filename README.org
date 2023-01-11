@@ -1,0 +1,163 @@
+#+TITLE: Image Rend php doc - main
+#+AUTHOR: Ali Shahidi
+#+DESCRIPTION: main page
+#+OPTIONS: num:nil ^:{}
+
+
+* TABLE OF CONTENTS :toc:
+- [[#what-is-this][What is this]]
+- [[#usage][Usage]]
+- [[#methods][Methods]]
+  - [[#make][make]]
+  - [[#resize][resize]]
+  - [[#fit][fit]]
+  - [[#watermark][watermark]]
+  - [[#text][text]]
+  - [[#save][save]]
+
+* What is this
+
+method chain php library for easily manage your image from input or file
+
+* Usage
+
+require package from composer
+
+#+begin_src sh
+
+composer require alishahidi/image-rend-php
+
+#+end_src
+
+* Methods
+
+** make
+
+*** Note
+
+create image instance
+
+*** argvs
+
+ 1. name => post input name or file path
+ 2. directory => root directory for save image
+ 3. dateFormat => save image in dateFormat like Y/M/D
+
+*** use
+
+#+begin_src php
+
+use Alishahidi\ImageRendPhp\ImageRend;
+
+$imageManager = new ImageRend();
+$imageManager->make('image.jpg', 'images/', true);
+
+#+end_src
+
+** resize
+
+*** Note
+
+resize image
+
+*** argvs
+
+ 1. width
+ 2. height
+
+*** use
+
+#+begin_src php
+
+$imageManager->resize(250, 340);
+
+#+end_src
+
+
+** fit
+
+*** Note
+
+fit image size
+
+*** argvs
+
+ 1. width
+ 2. height
+
+*** use
+
+#+begin_src php
+
+$imageManager->fit(250, 340);
+
+#+end_src
+
+** watermark
+
+*** Note
+
+add watermark to image
+
+*** argvs
+
+ 1. path of watermark image
+ 2. width
+ 3. height
+ 4. pos:'bottom-right'
+ 5. x:20
+ 6. y:20
+
+*** use
+
+#+begin_src php
+
+$imageManager->watermark("watermark.jpg", 200, 300);
+
+#+end_src
+
+** text
+
+*** Note
+
+add text watermark
+
+*** argvs
+
+ 1. text
+ 2. x:20
+ 3. y:20
+ 4. fontFile:'fonts/Roboto-Regular.ttf'
+ 5. size:24
+ 6. color:#ffffff
+ 7. pos:'bottom-right'
+ 8. angle:0
+
+*** use
+
+#+begin_src php
+
+$imageManager->text("alishahidinet.ir");
+
+#+end_src
+
+** save
+
+*** Note
+
+save image instance
+
+*** argvs
+
+ 1. name:''
+ 2. quality:42
+ 3. format:jpg
+ 4. unique:false
+
+*** use
+
+#+begin_src php
+
+$imageManager->save();
+
+#+end_src

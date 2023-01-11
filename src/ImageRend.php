@@ -14,6 +14,7 @@ class ImageRend
     private $driver;
 
     private $directory;
+    private $dateFormat = false;
 
     public function make($name, $directory = '', $dateFormat = false)
     {
@@ -28,6 +29,7 @@ class ImageRend
         }
         if ($dateFormat) {
             $directory .= date('Y/M/d/');
+            $this->dateFormat = $dateFormat;
         }
         $this->directory = $directory;
         $filesystem->mkdir(Path::normalize($directory));
@@ -83,10 +85,10 @@ class ImageRend
         return $this->driver->encode($format, $quality);
     }
 
-    public function save($name = '', $quality = 42, $format = 'jpg', $unique = false, $dateFormat = false)
+    public function save($name = '', $quality = 42, $format = 'jpg', $unique = false)
     {
         $name = explode('.', $name)[0];
-        if ($dateFormat) {
+        if ($this->dateFormat) {
             $name .= date('Y_m_d_M_i_s');
         }
         if ($unique) {
